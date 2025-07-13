@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>サイゼで学ぶマーケティング | 売上を3倍にする秘密</title>
+    <meta name="description" content="年50回通うサイゼマニアが解き明かす、誰でも使える売上アップの秘密。1000円の会計で学ぶマーケティング術。">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loading">
+        <div class="loading-content">
+            <div class="loading-logo">🍝</div>
+            <div class="loading-text">サイゼマーケティング</div>
+            <div class="loading-progress">
+                <div class="loading-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <div class="header-logo">
+                <span class="logo-icon">🍝</span>
+                <span class="logo-text">サイゼマーケティング</span>
+            </div>
+            <nav class="header-nav" id="nav-menu">
+                <a href="#method" class="nav-link">学べること</a>
+                <a href="#author" class="nav-link">著者</a>
+                <a href="#bonus" class="nav-link">特典</a>
+            </nav>
+            <button class="menu-toggle" id="menu-toggle">
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+                <span class="menu-text">MENU</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-overlay" id="mobile-overlay">
+        <nav class="mobile-nav">
+            <a href="#method" class="mobile-link">学べること</a>
+            <a href="#author" class="mobile-link">著者</a>
+            <a href="#bonus" class="mobile-link">特典</a>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="hero-background">
+            <div class="grain-texture"></div>
+        </div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="title-line">サイゼで学ぶ、</span>
+                    <span class="title-line accent">売上を3倍にする</span>
+                    <span class="title-line">マーケティング術</span>
+                </h1>
+                <p class="hero-subtitle">
+                    年50回通うサイゼマニアが解き明かす<br>
+                    誰でも使える売上アップの秘密
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">1000円</span>
+                        <span class="stat-label">の会計で学ぶ</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">年50回</span>
+                        <span class="stat-label">通う視点</span>
+                    </div>
+                </div>
+                <button class="cta-primary" onclick="scrollToSection('story')">
+                    今すぐ無料で読む
+                    <span class="material-icons">arrow_forward</span>
+                </button>
+            </div>
+            <div class="hero-visual">
+                <div class="visual-main">
+                    <div class="hero-video">
+                        <video autoplay muted loop playsinline>
+                            <source src="saize-movie.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="video-overlay">
+                        <div class="overlay-badge">年50回通う視点</div>
+                    </div>
+                </div>
+                <div class="food-grid">
+                    <div class="food-item" data-item="doria">
+                        <span class="material-icons">restaurant</span>
+                        <span class="food-name">ドリア</span>
+                    </div>
+                    <div class="food-item" data-item="wine">
+                        <span class="material-icons">wine_bar</span>
+                        <span class="food-name">ワイン</span>
+                    </div>
+                    <div class="food-item" data-item="chicken">
+                        <span class="material-icons">fastfood</span>
+                        <span class="food-name">チキン</span>
+                    </div>
+                    <div class="food-item" data-item="salad">
+                        <span class="material-icons">eco</span>
+                        <span class="food-name">サラダ</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section id="story" class="story-section">
+        <div class="section-container">
+            <div class="story-intro">
+                <h2 class="section-title">
+                    あなたのビジネス、<br>
+                    <span class="accent">こんな悩み</span>ありませんか？
+                </h2>
+            </div>
+            
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <div class="card-icon">
+                        <span class="material-icons">trending_down</span>
+                    </div>
+                    <h3 class="card-title">収益が伸びない</h3>
+                    <p class="card-description">記事を書いても収益に繋がらない</p>
+                </div>
+                
+                <div class="problem-card">
+                    <div class="card-icon">
+                        <span class="material-icons">help_outline</span>
+                    </div>
+                    <h3 class="card-title">原因がわからない</h3>
+                    <p class="card-description">何を改善すべきかわからない</p>
+                </div>
+                
+                <div class="problem-card">
+                    <div class="card-icon">
+                        <span class="material-icons">repeat</span>
+                    </div>
+                    <h3 class="card-title">リピーターが少ない</h3>
+                    <p class="card-description">一度きりの関係で終わってしまう</p>
+                </div>
+                
+                <div class="problem-card">
+                    <div class="card-icon">
+                        <span class="material-icons">school</span>
+                    </div>
+                    <h3 class="card-title">成果が出ない</h3>
+                    <p class="card-description">理論は学んでも実践に活かせない</p>
+                </div>
+            </div>
+
+            <div class="story-reveal">
+                <h2 class="reveal-title">
+                    実は答えは、あなたの身近な<br>
+                    <span class="saize-accent">サイゼリヤ</span>にあった！
+                </h2>
+                <div class="formula-container">
+                    <div class="formula-box">
+                        <span class="formula-text">売上 = 顧客単価 × 顧客数 × リピート数</span>
+                    </div>
+                    <p class="formula-description">この公式を使いこなすサイゼの戦略を完全解説</p>
+                </div>
+                <button class="cta-secondary" onclick="scrollToSection('method')">
+                    詳しく学ぶ
+                    <span class="material-icons">keyboard_arrow_down</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Method Section -->
+    <section id="method" class="method-section">
+        <div class="section-container">
+            <h2 class="section-title">この記事で学べること</h2>
+            
+            <div class="method-grid">
+                <div class="method-card">
+                    <div class="method-icon">
+                        <span class="material-icons">gps_fixed</span>
+                    </div>
+                    <h3 class="method-title">単価アップの極意</h3>
+                    <p class="method-description">サイゼのメニュー設計から学ぶ<br>自然な購入単価アップ術</p>
+                    <div class="method-example">
+                        <strong>例：</strong>ドリアセットの組み合わせ戦略
+                    </div>
+                </div>
+                
+                <div class="method-card">
+                    <div class="method-icon">
+                        <span class="material-icons">campaign</span>
+                    </div>
+                    <h3 class="method-title">口コミでファン化</h3>
+                    <p class="method-description">広告を打たずに<br>ファンを増やす仕組み</p>
+                    <div class="method-example">
+                        <strong>例：</strong>SNSで話題になるサイゼネタ
+                    </div>
+                </div>
+                
+                <div class="method-card">
+                    <div class="method-icon">
+                        <span class="material-icons">repeat</span>
+                    </div>
+                    <h3 class="method-title">リピーター化戦略</h3>
+                    <p class="method-description">一度きりで終わらせない<br>継続的な関係構築術</p>
+                    <div class="method-example">
+                        <strong>例：</strong>ドレッシング販売で日常接点
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Author Section -->
+    <section id="author" class="author-section">
+        <div class="section-container">
+            <div class="author-content">
+                <div class="author-image">
+                    <div class="author-avatar">
+                        <img src="author-avatar.jpg" alt="星乃チェスコ" class="avatar-image">
+                    </div>
+                    <div class="author-badge">サイゼリヤン</div>
+                </div>
+                
+                <div class="author-info">
+                    <h2 class="section-title">著者紹介</h2>
+                    <h3 class="author-name">星乃チェスコ</h3>
+                    
+                    <div class="author-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">年50回</span>
+                            <span class="stat-label">サイゼ通い</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">10万字</span>
+                            <span class="stat-label">書きたいサイゼ愛</span>
+                        </div>
+                    </div>
+                    
+                    <div class="author-roles">
+                        <span class="role-tag">ブロガー</span>
+                        <span class="role-tag">noter</span>
+                        <span class="role-tag">AIツール開発者</span>
+                    </div>
+                    
+                    <p class="author-description">
+                        朝昼晩三食サイゼ大歓迎。家族が寝静まったら即サイゼにダッシュ。
+                        そんなサイゼ愛溢れる視点から、誰もが使えるマーケティングの本質を解き明かします。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bonus Section -->
+    <section id="bonus" class="bonus-section">
+        <div class="section-container">
+            <div class="bonus-content">
+                <div class="bonus-badge">読者限定特典</div>
+                <h2 class="section-title">
+                    サイゼコンシェルジュGPTs<br>
+                    <span class="accent">プレゼント！</span>
+                </h2>
+                
+                <div class="bonus-demo">
+                    <div class="chat-container">
+                        <div class="chat-message user">
+                            <div class="message-avatar">
+                                <span class="material-icons">person</span>
+                            </div>
+                            <div class="message-content">
+                                予算1500円で、お酒も飲みたいです！
+                            </div>
+                        </div>
+                        <div class="chat-message ai">
+                            <div class="message-avatar">
+                                <span class="material-icons">smart_toy</span>
+                            </div>
+                            <div class="message-content">
+                                <p>それでしたら以下の組み合わせがおすすめです：</p>
+                                <ul>
+                                    <li>ミラノ風ドリア（300円）</li>
+                                    <li>辛味チキン（300円）</li>
+                                    <li>赤ワイン デカンタ（500円）</li>
+                                    <li>小エビのサラダ（350円）</li>
+                                </ul>
+                                <p><strong>合計：1450円</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bonus-features">
+                    <div class="feature-item">
+                        <span class="material-icons">calculate</span>
+                        <span>予算内で最適な組み合わせ</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="material-icons">wine_bar</span>
+                        <span>お酒の有無も考慮</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="material-icons">bolt</span>
+                        <span>瞬時に提案</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-section">
+        <div class="section-container">
+            <h2 class="final-title">
+                今すぐ学んで、<br>
+                あなたのビジネスを<span class="accent">変える</span>
+            </h2>
+            <p class="final-subtitle">サイゼの1000円会計に隠された売上3倍の秘密</p>
+            
+            <button class="cta-primary large" onclick="openArticle()">
+                <span class="material-icons">auto_stories</span>
+                記事を読んでマーケティングを学ぶ
+                <span class="cta-subtitle">無料・登録不要</span>
+            </button>
+            
+            <div class="final-features">
+                <div class="feature-item">
+                    <span class="material-icons">schedule</span>
+                    <span>読了時間：約15分</span>
+                </div>
+                <div class="feature-item">
+                    <span class="material-icons">smartphone</span>
+                    <span>スマホでも読みやすい</span>
+                </div>
+                <div class="feature-item">
+                    <span class="material-icons">card_giftcard</span>
+                    <span>特典GPTsつき</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="section-container">
+            <p>&copy; 2025 星乃チェスコ. All rights reserved.</p>
+            <p>サイゼリヤで学ぶマーケティング</p>
+        </div>
+    </footer>
+
+    <!-- Mobile Fixed CTA -->
+    <div class="mobile-cta" id="mobile-cta">
+        <button class="mobile-cta-button" onclick="openArticle()">
+            今すぐ無料で読む
+        </button>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
